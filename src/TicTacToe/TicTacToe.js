@@ -15,13 +15,13 @@ class TicTacToe extends React.Component {
     this.state = {
       player1: 'O',
       player2: 'X',
-      turn: 0,
+      turn: 1,
       board: [
         '', '', '',
         '', '', '',
         '', '', '',
       ],
-      gameEnabled: true
+      gameEnabled: false
     }
 
   }
@@ -60,7 +60,7 @@ class TicTacToe extends React.Component {
 
   onFieldClick(index) {
     if (!this.state.gameEnabled) { return };
-    if (this.state.board[index] !== '' && this.state.turn < 8) {
+    if (this.state.board[index] !== '' && this.state.turn <= 8) {
       alert("To pole jest już zajęte !!!"); return
 
     }
@@ -94,7 +94,7 @@ class TicTacToe extends React.Component {
         '', '', '',
       ],
       turn: 0,
-      gameEnabled: true
+      gameEnabled: false
     })
     let winfield;
     winfield = ``
@@ -102,6 +102,9 @@ class TicTacToe extends React.Component {
     let nextTurnTag;
     nextTurnTag = ` `;
     ReactDOM.render(nextTurnTag, document.querySelector(".nextturn"));
+    let infoGame;
+    infoGame = `Choose X or O to begin!`;
+    ReactDOM.render(infoGame, document.querySelector(".game-info"));
 
   }
   endGame(selectedPlayer) {
@@ -109,7 +112,7 @@ class TicTacToe extends React.Component {
     winfield = `the winner is:   ` + selectedPlayer;
     ReactDOM.render(winfield, document.querySelector(".winner"));
     this.setState({
-      gameEnabled: false
+      gameEnabled: true
 
     })
   }
@@ -120,19 +123,36 @@ class TicTacToe extends React.Component {
 
 
     this.setState({
-      gameEnabled: false
+      gameEnabled: true
 
     })
   }
   setX() {
-    this.setState({
-      turn: 1
-    });
+    if (this.state.gameEnabled === false) {
+      this.setState({
+        player1: 'O',
+        player2: 'X',
+        turn: 1,
+        gameEnabled: true
+      });
+    }
+    let infoGame;
+    infoGame = `you chose X`;
+    ReactDOM.render(infoGame, document.querySelector(".game-info"));
+
   }
   setO() {
-    this.setState({
-      turn: 0
-    });
+    if (this.state.gameEnabled === false) {
+      this.setState({
+        player1: 'X',
+        player2: 'O',
+        turn: 1,
+        gameEnabled: true
+      });
+    }
+    let infoGame;
+    infoGame = `you chose O`;
+    ReactDOM.render(infoGame, document.querySelector(".game-info"));
   }
 
 
@@ -142,6 +162,12 @@ class TicTacToe extends React.Component {
         <div className="tictactoe">
           <div className="score-board">
             <div className="score-board-border">
+              <div className="mode">
+                <h1 className="mode-title">Mode:</h1>
+                <div className="select-mode">
+                  <div className="vs-player">vs Player</div>
+                  <div className="vs-comp">vs Comp</div></div>
+              </div>
               <div className="difficulty">
                 <h1 className="score-board-title">Move:</h1>
                 <div className="nextturn"></div>
@@ -169,6 +195,7 @@ class TicTacToe extends React.Component {
                 );
               })}
             </div>
+            <div className="game-info">Choose X or O to begin!</div>
           </div>
         </div>
 

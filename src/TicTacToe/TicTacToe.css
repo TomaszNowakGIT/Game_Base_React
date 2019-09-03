@@ -25,7 +25,7 @@ body{
 
 .score-board-border{
   background-color: #609275;
-  padding: 30px;
+  padding: 10px;
   border: 2px solid #274534;
   width: 200px;
   border-radius: 10px;
@@ -66,15 +66,47 @@ text-align: center;
   cursor: pointer;
   border:3px #57ABAA solid;
   border-radius: 50%;
+  zoom: 1.1;
 }
 .score-board-title{
   text-decoration: underline;
 
 }
+.game-info{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-family: 'Indie Flower', cursive;
+  font-size:25px;
+}
+.mode-title {
+  text-decoration: underline;
+}
+.select-mode{
+  display: flex;
+  font-size: 20px;
+  justify-content: center;
+}
+.vs-comp{
+  margin-left:5px;
+}
+.vs-comp:hover{
+  cursor: pointer;
+  border:3px #57ABAA solid;
+  border-radius: 50%;
+  zoom: 1.1;
+}
+.vs-player:hover{
+  cursor: pointer;
+  border:3px #57ABAA solid;
+  border-radius: 50%;
+  zoom: 1.1;
+}
 .game-board {
   display: flex;
   flex-wrap: wrap;
-  height: 85vh;
+  height: 81vh;
   background-color: #609275;
   padding: 30px;
   border: 2px solid #274534;
