@@ -24,7 +24,7 @@ class TicTacToe extends React.Component {
       gameEnabled: false,
       info: ''
     }
-
+    this.computerTurn = this.computerTurn.bind(this);
   }
 
   checkGameStatus(selectedPlayer) {
@@ -165,6 +165,54 @@ class TicTacToe extends React.Component {
     infoGame = `you chose O`;
     ReactDOM.render(infoGame, document.querySelector(".game-info"));
   }
+
+  //////
+  getRandomInt() {
+    let min = Math.ceil(0);
+    let max = Math.floor(8);
+
+    let randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+
+    while (this.state.board[randomInt] !== '') {
+      randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    return randomInt;
+  }
+
+  async computerTurn() {
+    let board = this.state.board;
+
+    let computerFieldSelected = await this.getRandomInt();
+    board[computerFieldSelected] = 'o';
+
+    this.checkGameStatus('o');
+
+    this.setState({
+      turn: this.state.turn + 1,
+      board
+    })
+  }
+
+  async onFieldClickCom(index) {
+    if (!this.state.gameEnabled) { return };
+    if (this.state.board[index] !== '') { alert('To miejsce jest już zajęte!'); return };
+
+    let board = this.state.board;
+    board[index] = 'x';
+
+    this.checkGameStatus('x');
+
+    this.setState({
+      turn: this.state.turn + 1,
+      board
+    })
+
+    await this.computerTurn();
+  }
+  ///////
+
+
 
 
   render() {
