@@ -4,6 +4,7 @@ import { Nav } from "react-bootstrap";
 import "./App.css";
 import HomePage from "./HomePage/HomePage";
 import TicTacToe from "./TicTacToe/TicTacToe";
+import PaddleGame from "./PaddleGame/PaddleGame"
 
 
 
@@ -26,8 +27,8 @@ class App extends React.Component {
                 </Link>
               </Nav.Item>
               <Nav.Item>
-                <Link className="nav-link" to="/" disabled>
-                  Surprise
+                <Link className="nav-link" to="/PaddleGame" >
+                  PaddleGame
                 </Link>
               </Nav.Item>
             </Nav>
@@ -35,6 +36,7 @@ class App extends React.Component {
           <div className="container">
             <Route exact path="/" component={HomePage} />
             <Route path="/tictactoe" component={TicTacToe} />
+            <Route path="/paddlegame" component={PaddleGame} />
           </div>
         </Router>
 

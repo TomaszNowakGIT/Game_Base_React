@@ -57,8 +57,6 @@ class TicTacToe extends React.Component {
     }
   }
 
-
-
   onFieldClick(index) {
     if (!this.state.gameEnabled) { return };
     if (this.state.board[index] !== '') {
