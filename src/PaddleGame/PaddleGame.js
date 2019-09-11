@@ -1,5 +1,7 @@
 import React from 'react';
 import './PaddleGame.css';
+import './PaddleGame.scss';
+
 
 class PaddleGame extends React.Component {
   constructor() {
@@ -30,7 +32,8 @@ class PaddleGame extends React.Component {
   componentDidMount() {
     this.game.gameBoard = this.refs.canvas;
     this.game.context = this.refs.canvas.getContext('2d');
-    this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
+    // this.game.context.globalCompositeOperation = 'destination-over';
+    this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 40) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
   }
 
@@ -111,9 +114,31 @@ class PaddleGame extends React.Component {
   render() {
     return (
       <>
-        <h1>Current bounces: {this.state.bounces}</h1>
-        <h2>High Score: {localStorage.getItem("highScore")}</h2>
-        <canvas ref="canvas" width="800" height="600"></canvas>
+
+        <div className="scanlines on">
+          <div className="screen">
+            <div className="overlay">
+              <div className="text">
+                <span >AV-1</span>
+              </div>
+              <div className="menu">
+                <header>
+                  <div className="menu-text">
+                    Poddle Game</div>
+                  <div className="menu-text">PAUSE</div>
+                </header>
+                <div className="game-field">
+                  <canvas ref="canvas" width="600" height="400"></canvas></div>
+                <footer>
+                  <div className="key"><h1>High Score: {localStorage.getItem("highScore")}</h1>
+                  </div>
+                  <div className="key">
+                    <h2>Current bounces: {this.state.bounces}</h2></div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
       </>
     );
   }

@@ -1,5 +1,8 @@
 body{
-    background-color: #A9DFBF !important;
+    background: #A9DFBF !important;
+    color: black !important;
+    padding-top: 0px !important;
+    padding-left: 0px !important;
 }
 #root
 {background: #A9DFBF;
