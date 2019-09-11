@@ -115,7 +115,7 @@ class PaddleGame extends React.Component {
     return (
       <>
 
-        <div className="scanlines on">
+        <div className="scanlines">
           <div className="screen">
             <div className="overlay">
               <div className="text">
