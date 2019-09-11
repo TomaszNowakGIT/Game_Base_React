@@ -1,6 +1,7 @@
 import React from 'react';
 import './PaddleGame.css';
 import './PaddleGame.scss';
+import './loop.wav'
 
 
 class PaddleGame extends React.Component {
@@ -32,6 +33,7 @@ class PaddleGame extends React.Component {
   componentDidMount() {
     this.game.gameBoard = this.refs.canvas;
     this.game.context = this.refs.canvas.getContext('2d');
+
     // this.game.context.globalCompositeOperation = 'destination-over';
     this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 40) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
@@ -69,6 +71,7 @@ class PaddleGame extends React.Component {
       this.game.ballX > paddleLeftEdgeX &&
       this.game.ballX < paddleRightEdgeX) {
       this.game.ballSpeedY *= -1;
+
       this.setState({ bounces: this.state.bounces + 1 })
       this.setHighScore();
     }
@@ -93,6 +96,8 @@ class PaddleGame extends React.Component {
     this.game.context.beginPath();
     this.game.context.arc(this.game.ballX, this.game.ballY, 10, 0, Math.PI * 2, true);
     this.game.context.fill();
+    this.game.context.filter = 'blur(1px)';
+    this.game.context.animation = 'jerkup 100ms infinite';
   }
 
   updateAll() {
@@ -109,6 +114,11 @@ class PaddleGame extends React.Component {
   resetBall() {
     this.game.ballX = this.game.gameBoard.width / 2;
     this.game.ballY = this.game.gameBoard.height / 4;
+  }
+
+  playAudio() {
+    var snd = new Audio("./loop.wav"); // buffers automatically when created
+    snd.play();
   }
 
   render() {
