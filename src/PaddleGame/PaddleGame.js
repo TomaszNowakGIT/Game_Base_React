@@ -37,11 +37,35 @@ class PaddleGame extends React.Component {
     // this.game.context.globalCompositeOperation = 'destination-over';
     this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 40) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
+
+  }
+  level() {
+    if (this.state.bounces > 3) {
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 80) });
+
+    }
   }
 
   componentWillUnmount() {
     clearInterval(this.state.gameRefreshInterval);
   }
+  //snow() {
+
+  //  let ctx = this.refs.canvas2.getContext('2d');
+  //  var w = ctx.canvas.width,
+  //    h = ctx.canvas.height,
+  //    d = ctx.createImageData(w, h),
+  //    b = new Uint32Array(d.data.buffer),
+  //    len = b.length;
+
+  //  for (var i = 0; i < len; i++) {
+  //    b[i] = ((255 * Math.random()) | 0) << 24;
+  //  }
+
+  //  ctx.putImageData(d, 0, 0);
+  // }
+
+
 
   updateDirection() {
     this.game.ballX += this.game.ballSpeedX;
@@ -60,6 +84,7 @@ class PaddleGame extends React.Component {
       this.resetBall();
       this.setState({ bounces: 0 })
     }
+    this.level();
 
     let paddleTopEdgeY = this.game.gameBoard.height - this.game.paddleDistFromEdge;
     let paddleBottomEdgeY = paddleTopEdgeY + this.game.paddleHeight;
@@ -97,7 +122,8 @@ class PaddleGame extends React.Component {
     this.game.context.arc(this.game.ballX, this.game.ballY, 10, 0, Math.PI * 2, true);
     this.game.context.fill();
     this.game.context.filter = 'blur(1px)';
-    this.game.context.animation = 'jerkup 100ms infinite';
+    this.game.gameBoard.animation = 'jerkup 100ms infinite';
+
   }
 
   updateAll() {
@@ -116,18 +142,18 @@ class PaddleGame extends React.Component {
     this.game.ballY = this.game.gameBoard.height / 4;
   }
 
-  playAudio() {
-    var snd = new Audio("./loop.wav"); // buffers automatically when created
-    snd.play();
-  }
+
 
   render() {
     return (
       <>
-
         <div className="scanlines">
+          {/* <canvas ref="canvas2" className="picture" width="600" height="400"></canvas> */}
           <div className="screen">
+
+
             <div className="overlay">
+
               <div className="text">
                 <span >AV-1</span>
               </div>
