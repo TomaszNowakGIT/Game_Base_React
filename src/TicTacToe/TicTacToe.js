@@ -62,7 +62,7 @@ class TicTacToe extends React.Component {
     if (this.state.board[index] !== '') {
       this.infoGame(); return
     }
-    if (this.state.turn > 8) {
+    if (this.state.turn > 9) {
       this.tieGame(); return
     }
     let selectedPlayerTag = this.state.turn % 2 === 0 ? this.state.player1 : this.state.player2;

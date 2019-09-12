@@ -1,7 +1,9 @@
 import React from 'react';
 import './PaddleGame.css';
 import './PaddleGame.scss';
-import './loop.wav'
+import soundEfx from './loop.mp3';
+import beepSound from './jump.wav';
+import failureSound from './failure.wav'
 
 
 class PaddleGame extends React.Component {
@@ -33,15 +35,16 @@ class PaddleGame extends React.Component {
   componentDidMount() {
     this.game.gameBoard = this.refs.canvas;
     this.game.context = this.refs.canvas.getContext('2d');
+    this.backgroundSound()
 
-    // this.game.context.globalCompositeOperation = 'destination-over';
-    this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 40) });
+    this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
+
 
   }
   level() {
     if (this.state.bounces > 3) {
-      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 80) });
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 60) });
 
     }
   }
@@ -73,18 +76,22 @@ class PaddleGame extends React.Component {
 
     if (this.game.ballX < 0) {
       this.game.ballSpeedX *= -1;
+      this.beepSound()
     }
     if (this.game.ballX > this.game.gameBoard.width) {
       this.game.ballSpeedX *= -1;
+      this.beepSound()
     }
     if (this.game.ballY < 0) {
       this.game.ballSpeedY *= -1;
+      this.beepSound()
     }
     if (this.game.ballY > this.game.gameBoard.height) {
       this.resetBall();
       this.setState({ bounces: 0 })
+      this.failureSound();
     }
-    this.level();
+
 
     let paddleTopEdgeY = this.game.gameBoard.height - this.game.paddleDistFromEdge;
     let paddleBottomEdgeY = paddleTopEdgeY + this.game.paddleHeight;
@@ -99,6 +106,7 @@ class PaddleGame extends React.Component {
 
       this.setState({ bounces: this.state.bounces + 1 })
       this.setHighScore();
+      this.beepSound();
     }
   }
 
@@ -129,19 +137,42 @@ class PaddleGame extends React.Component {
   updateAll() {
     this.printElements();
     this.updateDirection();
+
   }
 
   updateMousePosition(ev) {
     let rect = this.refs.canvas.getBoundingClientRect();
     let mouseX = ev.clientX - rect.left;
     this.game.paddleX = mouseX - (this.game.paddleWidth / 2);
+
   }
 
   resetBall() {
     this.game.ballX = this.game.gameBoard.width / 2;
     this.game.ballY = this.game.gameBoard.height / 4;
-  }
 
+
+  }
+  backgroundSound() {
+    let soundEfx;
+    soundEfx = document.getElementById("soundEfx");
+    soundEfx.volume = 0.2
+    soundEfx.play();
+
+  }
+  beepSound() {
+    let beepSound;
+    beepSound = document.getElementById("beepSound");
+    beepSound.volume = 0.5
+    beepSound.play();
+
+  }
+  failureSound() {
+    let failureSound;
+    failureSound = document.getElementById("failureSound");
+    failureSound.volume = 0.2
+    failureSound.play();
+  }
 
 
   render() {
@@ -164,6 +195,9 @@ class PaddleGame extends React.Component {
                   <div className="menu-text">PAUSE</div>
                 </header>
                 <div className="game-field">
+                  <audio id="soundEfx" src={soundEfx} style={{ display: 'none' }} loop></audio>
+                  <audio id="beepSound" src={beepSound} style={{ display: 'none' }}></audio>
+                  <audio id="failureSound" src={failureSound} style={{ display: 'none' }}></audio>
                   <canvas ref="canvas" width="600" height="400"></canvas></div>
                 <footer>
                   <div className="key"><h1>High Score: {localStorage.getItem("highScore")}</h1>
