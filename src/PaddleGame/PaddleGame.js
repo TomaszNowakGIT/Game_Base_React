@@ -36,16 +36,20 @@ class PaddleGame extends React.Component {
     this.game.gameBoard = this.refs.canvas;
     this.game.context = this.refs.canvas.getContext('2d');
     this.backgroundSound()
-
     this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
 
 
+
   }
   level() {
-    if (this.state.bounces > 3) {
-      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 60) });
+    if (this.state.bounces > 5) {
+      clearInterval(this.state.gameRefreshInterval)
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 50) });
 
+    } if (this.state.bounces > 10) {
+      clearInterval(this.state.gameRefreshInterval)
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 80) });
     }
   }
 
@@ -71,6 +75,8 @@ class PaddleGame extends React.Component {
 
 
   updateDirection() {
+    this.level();
+
     this.game.ballX += this.game.ballSpeedX;
     this.game.ballY += this.game.ballSpeedY;
 
@@ -91,6 +97,7 @@ class PaddleGame extends React.Component {
       this.setState({ bounces: 0 })
       this.failureSound();
     }
+
 
 
     let paddleTopEdgeY = this.game.gameBoard.height - this.game.paddleDistFromEdge;
