@@ -43,6 +43,10 @@ class PaddleGame extends React.Component {
 
   }
   level() {
+    if (this.state.bounces > 0) {
+      clearInterval(this.state.gameRefreshInterval)
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
+    }
     if (this.state.bounces > 5) {
       clearInterval(this.state.gameRefreshInterval)
       this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 50) });
@@ -96,6 +100,7 @@ class PaddleGame extends React.Component {
       this.resetBall();
       this.setState({ bounces: 0 })
       this.failureSound();
+
     }
 
 

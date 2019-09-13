@@ -125,19 +125,6 @@ $font-size: 20px;
 		filter: blur(1px);
 	animation: jerkup 100ms infinite;
 	}
-.picture {
-		height: 100vh;
-		overflow: hidden;
-		width: 100vw;
-		z-index: -1;
-		transform: scale(0, 0);
-		background: transparent
-			linear-gradient(to bottom, #85908c 0%, #323431 100%)
-			repeat
-			scroll
-			0
-			0;
-	}
 
 	footer {
 		background-color: #2afd72;
