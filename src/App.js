@@ -5,10 +5,19 @@ import "./App.css";
 import HomePage from "./HomePage/HomePage";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import PaddleGame from "./PaddleGame/PaddleGame"
+import lang from "./lang.json"
 
 
 
 class App extends React.Component {
+  constructor() {
+    super();
+
+
+    if (!localStorage.getItem('lang')) {
+      localStorage.setItem('lang', 'en')
+    }
+  }
 
   render() {
     return (
@@ -18,17 +27,17 @@ class App extends React.Component {
             <Nav className="navigation " variant="pills" defaultActiveKey="/TicTacToe">
               <Nav.Item>
                 <Link className="nav-link" to="/">
-                  HomePage
+                  {lang[localStorage.getItem('lang')].homepage}
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link className="nav-link nav-tic-tac" to="/TicTacToe">
-                  Tic Tac Toe
+                  {lang[localStorage.getItem('lang')].tictactoe}
                 </Link>
               </Nav.Item>
               <Nav.Item>
                 <Link className="nav-link" to="/PaddleGame" >
-                  PaddleGame
+                  {lang[localStorage.getItem('lang')].paddlegame}
                 </Link>
               </Nav.Item>
             </Nav>

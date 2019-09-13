@@ -25,7 +25,8 @@ class PaddleGame extends React.Component {
 
     this.state = {
       gameRefreshInterval: null,
-      bounces: 0
+      bounces: 0,
+      isFullScreen: false
     }
 
     this.updateAll = this.updateAll.bind(this);
@@ -38,6 +39,7 @@ class PaddleGame extends React.Component {
     this.backgroundSound()
     this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
     this.refs.canvas.addEventListener('mousemove', this.updateMousePosition)
+
 
 
 
@@ -186,11 +188,23 @@ class PaddleGame extends React.Component {
     failureSound.play();
   }
 
+  setCanvasSize() {
+    if (this.state.isFullScreen) {
+      return 'game-board-paddle game-board-paddle--full-screen'
+    } else return 'game-board-paddle';
+  }
+  toggleFullScreen() {
+    this.setState({
+      isFullScreen: !this.state.isFullScreen
+    })
+  }
 
   render() {
     return (
       <>
+        <button onClick={this.toggleFullScreen.bind(this)} style={{ cursor: 'pointer' }} className="full">⤡</button>
         <div className="scanlines">
+
           {/* <canvas ref="canvas2" className="picture" width="600" height="400"></canvas> */}
           <div className="screen">
 
@@ -199,23 +213,26 @@ class PaddleGame extends React.Component {
 
               <div className="text">
                 <span >AV-1</span>
+
               </div>
               <div className="menu">
                 <header>
                   <div className="menu-text">
                     Poddle Game</div>
                   <div className="menu-text">PAUSE</div>
+
                 </header>
                 <div className="game-field">
                   <audio id="soundEfx" src={soundEfx} style={{ display: 'none' }} loop></audio>
                   <audio id="beepSound" src={beepSound} style={{ display: 'none' }}></audio>
                   <audio id="failureSound" src={failureSound} style={{ display: 'none' }}></audio>
-                  <canvas ref="canvas" width="600" height="400"></canvas></div>
+                  <canvas onDoubleClick={this.toggleFullScreen.bind(this)} className={this.setCanvasSize()} ref="canvas" width="600" height="400"></canvas></div>
                 <footer>
                   <div className="key"><h1>High Score: {localStorage.getItem("highScore")}</h1>
                   </div>
                   <div className="key">
                     <h2>Current bounces: {this.state.bounces}</h2></div>
+
                 </footer>
               </div>
             </div>
