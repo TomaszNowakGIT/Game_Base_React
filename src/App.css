@@ -1,14 +1,14 @@
 body{
     background: #A9DFBF !important;
-    color: black !important;
+    color: white !important;
     padding-top: 0px !important;
     padding-left: 0px !important;
 }
 #root
-{background: #A9DFBF;
+{background:black;
 }
 .nav-link{
-    color: black;
+    color:white;
     font-size: 20px;
     text-transform: uppercase;
     font-weight: 900;
@@ -16,8 +16,8 @@ body{
  
  }
 .nav-link:hover{
-     color:white;
-     background: black;
+     color: black;
+     background: white;
 
  }
  .container{
