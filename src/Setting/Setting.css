@@ -20,6 +20,7 @@ margin-left: 10px;
    zoom: 2;
     transform:rotate(360deg);
     transition: 1s;
+    border: 2px white solid;
 
     }
 

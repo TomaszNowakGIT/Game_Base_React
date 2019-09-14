@@ -1,3 +1,4 @@
+
 .navi{
     background-color:white;
     border-radius:12px;
@@ -46,7 +47,7 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
     right: 30%;
-    bottom: -189%;
+    bottom: -193%;
     position: absolute;
     
     -webkit-transition: .4s ease-in-out;
@@ -71,7 +72,7 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
     right: 30%;
-    bottom: -189%;
+    bottom: -193%;
     position: absolute;
     
     -webkit-transition: .4s ease-in-out;
@@ -84,7 +85,7 @@
 
 #root
 {
-    background-image: url("http://i.imgur.com/6QJjYMe.jpg");
+    background-image: url("./backbrick.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
