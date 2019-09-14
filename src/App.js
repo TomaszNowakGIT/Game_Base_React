@@ -6,6 +6,7 @@ import HomePage from "./HomePage/HomePage";
 import TicTacToe from "./TicTacToe/TicTacToe";
 import PaddleGame from "./PaddleGame/PaddleGame"
 import lang from "./lang.json"
+import Setting from "./Setting/Setting";
 
 
 
@@ -24,7 +25,7 @@ class App extends React.Component {
       <>
         <Router>
           <div className="container">
-            <Nav className="navigation " variant="pills" defaultActiveKey="/TicTacToe">
+            <Nav className="navigation navi" variant="pills" defaultActiveKey="/TicTacToe">
               <Nav.Item>
                 <Link className="nav-link" to="/">
                   {lang[localStorage.getItem('lang')].homepage}
@@ -40,12 +41,22 @@ class App extends React.Component {
                   {lang[localStorage.getItem('lang')].paddlegame}
                 </Link>
               </Nav.Item>
+              <Nav.Item>
+                <Link className="nav-link" to="/Setting" >
+                  {lang[localStorage.getItem('lang')].setting}
+                </Link>
+              </Nav.Item>
             </Nav>
           </div>
+
           <div className="container">
+
             <Route exact path="/" component={HomePage} />
             <Route path="/tictactoe" component={TicTacToe} />
             <Route path="/paddlegame" component={PaddleGame} />
+            <Route path="/setting" component={Setting} />
+
+
           </div>
         </Router>
 

@@ -4,13 +4,15 @@
         "desc": "This is GameBoard coded in React",
         "tictactoe": "Tic Tac Toe",
         "homepage": "HomePage",
-        "paddlegame": "PaddleGame"
+        "paddlegame": "PaddleGame",
+        "setting": "Settings"
     },
     "pl": {
         "title": "Witaj w platformie gier ",
         "desc": "To jest platforma gier zakodowana w React",
         "tictactoe": "Kółko i krzyżyk",
         "homepage": "Strona główna",
-        "paddlegame": "Odbijanie piłki"
+        "paddlegame": "Odbijanie piłki",
+        "setting": "Ustawienia"
     }
 }

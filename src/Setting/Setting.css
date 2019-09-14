@@ -1,0 +1,25 @@
+.setting{
+    height: 100vh;
+
+
+}
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+
+}
+.option >button{
+flex-shrink: 1;
+border-radius: 50%;
+margin-left: 10px;
+
+}
+.option >button:hover{
+   zoom: 2;
+    transform:rotate(360deg);
+    transition: 1s;
+
+    }
+
