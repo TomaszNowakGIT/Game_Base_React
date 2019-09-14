@@ -1,6 +1,7 @@
 import React from "react";
 import lang from "../lang.json"
 import "./HomePage.css";
+import catSound from './cat.wav'
 
 
 
@@ -9,6 +10,17 @@ class HomePage extends React.Component {
   setLanguage(lang) {
     localStorage.setItem('lang', lang);
 
+  }
+
+  catSound() {
+    let catSound;
+    catSound = document.getElementById("catSound");
+    catSound.volume = 0.1
+    setTimeout(function () {
+
+      catSound.play();
+
+    }, 6000)
   }
 
   render() {
@@ -22,7 +34,8 @@ class HomePage extends React.Component {
           <h1 className="title">{lang[localStorage.getItem('lang')].title}</h1>
           <h3 className="desc">{lang[localStorage.getItem('lang')].desc}</h3>
         </div>
-        <div className="meow">
+        <div onMouseEnter={this.catSound.bind(this)} className="meow">
+          <audio id="catSound" src={catSound} style={{ display: 'none' }}></audio>
           <div className="cat">
             <div className="cat-inner">
             </div>
