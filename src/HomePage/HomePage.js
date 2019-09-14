@@ -21,6 +21,7 @@ class HomePage extends React.Component {
       catSound.play();
 
     }, 6000)
+    catSound.pause();
   }
 
   render() {
