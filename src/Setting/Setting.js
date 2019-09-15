@@ -32,7 +32,7 @@ class Setting extends React.Component {
           <h5> {lang[localStorage.getItem('lang')].scoreReset}</h5>
           <button onClick={this.resetScore.bind(this)} className="btn btn-danger">RESET</button>
         </div>
-
+        <div className='plate'>created by <a href={"mailto:tn@mpro.pl"}>MPRO</a></div>
       </div>
 
     );
