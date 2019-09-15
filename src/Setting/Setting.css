@@ -1,23 +1,40 @@
 .setting{
     height: 100vh;
-
+justify-content: center;
+display: flex;
+flex-direction: column;
+align-items: center;
 
 }
 .option{
     display: flex;
     align-items: center;
-    justify-content: center;
-    height: 300px;
+
+   height: 200px;
+
 
 }
-.option >button{
+.option1{
+    display: flex;
+    align-items: center;
+    height: 100px;
+
+}
+h5{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.setting-menu >button{
 flex-shrink: 1;
 border-radius: 50%;
 margin-left: 10px;
+height: 80px;
+width: 80px;
 
 }
-.option >button:hover{
-   zoom: 2;
+.setting-menu  >button:hover{
+   zoom: 1.2;
     transform:rotate(360deg);
     transition: 1s;
     border: 2px white solid;

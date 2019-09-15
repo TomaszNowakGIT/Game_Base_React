@@ -12,6 +12,10 @@ class Setting extends React.Component {
     EventEmitter.dispatch('langChange', true);
 
   }
+  resetScore() {
+    localStorage.setItem('highScore', 0);
+  }
+
 
   render() {
 
@@ -19,12 +23,18 @@ class Setting extends React.Component {
     return (
 
       <div className="setting">
-        <div className="option">
+        <div className="option setting-menu">
           <h5> {lang[localStorage.getItem('lang')].pleaseSelect}</h5>
           <button onClick={this.setLanguage.bind(this, 'pl')} className="btn btn-danger">PL</button>
           <button onClick={this.setLanguage.bind(this, 'en')} className="btn btn-primary">EN</button>
         </div>
+        <div className="option1 setting-menu">
+          <h5> {lang[localStorage.getItem('lang')].scoreReset}</h5>
+          <button onClick={this.resetScore.bind(this)} className="btn btn-danger">RESET</button>
+        </div>
+
       </div>
+
     );
   }
 }

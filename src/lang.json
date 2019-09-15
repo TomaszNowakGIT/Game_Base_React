@@ -6,7 +6,8 @@
         "homepage": "HomePage",
         "paddlegame": "PaddleGame",
         "setting": "Settings",
-        "pleaseSelect": "Please select language"
+        "pleaseSelect": "Select language",
+        "scoreReset": "Reset scores"
     },
     "pl": {
         "title": "Witaj w platformie gier ",
@@ -15,6 +16,7 @@
         "homepage": "Strona główna",
         "paddlegame": "Odbijanie piłki",
         "setting": "Ustawienia",
-        "pleaseSelect": "Proszę wybierz język"
+        "pleaseSelect": "Wybierz język",
+        "scoreReset": "Zresetuj wyniki"
     }
 }
