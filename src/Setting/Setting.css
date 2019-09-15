@@ -43,7 +43,7 @@ width: 80px;
     position: absolute;
     color:white;
     font-size: 20px;
-    background-color: black;
+    background-color: #151c32;
     border-radius:10px;
     left:10%;
     top: 30%;
@@ -52,10 +52,14 @@ width: 80px;
     padding: 10px;
     box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
     z-index: 2;
+    font-weight: 500;
+
 
 }
 .plate:hover{
-    animation: wobble-hor-top 0.8s both;
+    animation: wobble-hor-top 1s both;
+    cursor: pointer;
+    transition: 2s;
 }
 .plate:before{
     position: absolute;
@@ -68,15 +72,17 @@ width: 80px;
     margin-top: -150px;
 }
 .plate:after{
+
     content: "";
     width: 50px;
     height: 70px;
-    border: 3px black solid;
+    border: 1px #151c32 solid;
     margin-left: -100px;
     position: absolute;
     margin-top: -69px;
     border-radius: 150px;
-    z-index: 1
+    z-index: 1;
+
 }
 
 @keyframes wobble-hor-top {
