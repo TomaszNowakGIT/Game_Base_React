@@ -5,7 +5,8 @@
         "tictactoe": "Tic Tac Toe",
         "homepage": "HomePage",
         "paddlegame": "PaddleGame",
-        "setting": "Settings"
+        "setting": "Settings",
+        "pleaseSelect": "Please select language"
     },
     "pl": {
         "title": "Witaj w platformie gier ",
@@ -13,6 +14,7 @@
         "tictactoe": "Kółko i krzyżyk",
         "homepage": "Strona główna",
         "paddlegame": "Odbijanie piłki",
-        "setting": "Ustawienia"
+        "setting": "Ustawienia",
+        "pleaseSelect": "Proszę wybierz język"
     }
 }

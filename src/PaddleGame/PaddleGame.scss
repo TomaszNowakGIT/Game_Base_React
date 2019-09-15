@@ -38,13 +38,24 @@ $font-size: 20px;
 	position: absolute;
 	left: 50%;
 	top: 51%;
-	transform: translate3d(-50%, -50%, 0);
+	transform: translate3d(-50%, -56%, 0);
 }
 
 @mixin flexCenter {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+}
+
+.menu-text{
+	animation: 5s ease 2000ms normal none infinite running glitch;
+	filter: blur(1px);
+	animation: jerkup 100ms infinite;
+}
+.pause{
+	cursor: pointer;
+	z-index: 100;
+	pointer-events: all;
 }
 .game-board-paddle--full-screen{
 	width:100vw;
@@ -136,18 +147,15 @@ $font-size: 20px;
 		1px -1px 0 #000000,
 		-1px 1px 0 #000000;
 		color: #fff;
-	//filter: blur(1px);
-	//animation: jerkup 100ms infinite;
+
 
 	header {
 		color: #e7e05c;
 		margin-bottom: 10px;
 		padding: 5px 15px;
-		animation: 5s ease 2000ms normal none infinite running glitch;
 		display: flex;
 	justify-content: space-between;
-		filter: blur(1px);
-	animation: jerkup 100ms infinite;
+
 	}
 
 	footer {
@@ -186,7 +194,9 @@ $font-size: 20px;
 
 canvas{
 	cursor: none;
-	z-index: 100;
+	z-index: 2;
+	filter: blur(1px);
+	animation: jerkup 100ms infinite;
 }
 $delay: 2000ms;
 

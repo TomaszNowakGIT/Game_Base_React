@@ -28,6 +28,15 @@ class HomePage extends React.Component {
     catSound = document.getElementById("catSound");
     catSound.pause();
   }
+  getLocalization() {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition((pos) => {
+        console.log(pos);
+      })
+    } else {
+      console.log("Twoja przęglądarka nie wspiera geolokalizacji")
+    }
+  }
 
   render() {
 

@@ -20,7 +20,8 @@ class PaddleGame extends React.Component {
       paddleWidth: 100,
       paddleHeight: 10,
       paddleDistFromEdge: 60,
-      paddleX: 400
+      paddleX: 400,
+      gameSpeed: 1000
     }
 
     this.state = {
@@ -48,37 +49,29 @@ class PaddleGame extends React.Component {
     if (this.state.bounces > 0) {
       clearInterval(this.state.gameRefreshInterval)
       this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
+      this.setState({ gameSpeed: 1000 })
     }
     if (this.state.bounces > 5) {
       clearInterval(this.state.gameRefreshInterval)
-      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 50) });
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 800 / 30) });
+      this.setState({ gameSpeed: 800 })
 
     } if (this.state.bounces > 10) {
       clearInterval(this.state.gameRefreshInterval)
-      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 80) });
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 500 / 30) });
+      this.setState({ gameSpeed: 500 })
+
+    } if (this.state.bounces > 20) {
+      clearInterval(this.state.gameRefreshInterval)
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 400 / 30) });
+      this.setState({ gameSpeed: 400 })
+
     }
   }
 
   componentWillUnmount() {
     clearInterval(this.state.gameRefreshInterval);
   }
-  //snow() {
-
-  //  let ctx = this.refs.canvas2.getContext('2d');
-  //  var w = ctx.canvas.width,
-  //    h = ctx.canvas.height,
-  //    d = ctx.createImageData(w, h),
-  //    b = new Uint32Array(d.data.buffer),
-  //    len = b.length;
-
-  //  for (var i = 0; i < len; i++) {
-  //    b[i] = ((255 * Math.random()) | 0) << 24;
-  //  }
-
-  //  ctx.putImageData(d, 0, 0);
-  // }
-
-
 
   updateDirection() {
     this.level();
@@ -174,6 +167,11 @@ class PaddleGame extends React.Component {
     soundEfx.play();
 
   }
+  pauseBackgroundSound() {
+    let soundEfx;
+    soundEfx = document.getElementById("soundEfx");
+    soundEfx.pause();
+  }
   beepSound() {
     let beepSound;
     beepSound = document.getElementById("beepSound");
@@ -198,29 +196,40 @@ class PaddleGame extends React.Component {
       isFullScreen: !this.state.isFullScreen
     })
   }
+  startEndGame() {
+    if (!this.state.gameRefreshInterval) {
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, this.game.gameSpeed / 30) })
+      this.backgroundSound()
+    } else {
+      clearInterval(this.state.gameRefreshInterval);
+      this.setState({ gameRefreshInterval: null });
+      this.pauseBackgroundSound();
+    }
+  }
 
   render() {
+    let pauseResume;
+
+    if (this.state.gameRefreshInterval) {
+      pauseResume = <div onClick={this.startEndGame.bind(this)} className="menu-text pause">RESUME</div>;
+    } else {
+      pauseResume = <div onClick={this.startEndGame.bind(this)} className="menu-text pause">PAUSE</div>;
+    }
+
     return (
       <>
         <button onClick={this.toggleFullScreen.bind(this)} style={{ cursor: 'pointer' }} className="full">⤡</button>
         <div className="scanlines">
-
-          {/* <canvas ref="canvas2" className="picture" width="600" height="400"></canvas> */}
           <div className="screen">
-
-
             <div className="overlay">
-
               <div className="text">
                 <span >AV-1</span>
-
               </div>
               <div className="menu">
                 <header>
                   <div className="menu-text">
                     Poddle Game</div>
-                  <div className="menu-text">PAUSE</div>
-
+                  {pauseResume}
                 </header>
                 <div className="game-field">
                   <audio id="soundEfx" src={soundEfx} style={{ display: 'none' }} loop></audio>
@@ -232,7 +241,6 @@ class PaddleGame extends React.Component {
                   </div>
                   <div className="key">
                     <h2>Current bounces: {this.state.bounces}</h2></div>
-
                 </footer>
               </div>
             </div>
