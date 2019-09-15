@@ -260,7 +260,7 @@ class PaddleGame extends React.Component {
               <div className="menu">
                 <header>
                   <div className="menu-text">
-                    Poddle Game</div>
+                    Paddle Game</div>
                   {pauseResume}
                 </header>
                 <div className="game-field">
