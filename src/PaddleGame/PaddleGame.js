@@ -6,6 +6,7 @@ import beepSound from './jump.wav';
 import failureSound from './failure.wav'
 
 
+
 class PaddleGame extends React.Component {
   constructor() {
     super();
@@ -21,7 +22,8 @@ class PaddleGame extends React.Component {
       paddleHeight: 10,
       paddleDistFromEdge: 60,
       paddleX: 400,
-      gameSpeed: 1000
+      gameSpeed: 1000,
+      gameStatus: null
     }
 
     this.state = {
@@ -95,9 +97,10 @@ class PaddleGame extends React.Component {
       this.resetBall();
       this.setState({ bounces: 0 })
       this.failureSound();
+      clearInterval(this.state.gameRefreshInterval);
+      this.gameOver();
 
     }
-
 
 
     let paddleTopEdgeY = this.game.gameBoard.height - this.game.paddleDistFromEdge;
@@ -114,8 +117,17 @@ class PaddleGame extends React.Component {
       this.setState({ bounces: this.state.bounces + 1 })
       this.setHighScore();
       this.beepSound();
+
+
     }
   }
+  gameOver() {
+    this.pauseBackgroundSound();
+    this.setState({
+      gameStatus: false
+    })
+  }
+
 
   setHighScore() {
     let highScore = localStorage.getItem("highScore");
@@ -136,8 +148,6 @@ class PaddleGame extends React.Component {
     this.game.context.beginPath();
     this.game.context.arc(this.game.ballX, this.game.ballY, 10, 0, Math.PI * 2, true);
     this.game.context.fill();
-    this.game.context.filter = 'blur(1px)';
-    this.game.gameBoard.animation = 'jerkup 100ms infinite';
 
   }
 
@@ -196,6 +206,18 @@ class PaddleGame extends React.Component {
       isFullScreen: !this.state.isFullScreen
     })
   }
+  startGame() {
+    if (this.state.gameRefreshInterval) {
+      this.setState({ gameRefreshInterval: setInterval(this.updateAll, 1000 / 30) });
+      this.setState({ gameSpeed: 1000 })
+      this.backgroundSound()
+      this.setState({
+        gameStatus: true
+      })
+
+    }
+
+  }
   startEndGame() {
     if (!this.state.gameRefreshInterval) {
       this.setState({ gameRefreshInterval: setInterval(this.updateAll, this.game.gameSpeed / 30) })
@@ -205,15 +227,25 @@ class PaddleGame extends React.Component {
       this.setState({ gameRefreshInterval: null });
       this.pauseBackgroundSound();
     }
+    this.setState({
+      gameStatus: true
+    })
   }
 
   render() {
     let pauseResume;
 
     if (this.state.gameRefreshInterval) {
-      pauseResume = <div onClick={this.startEndGame.bind(this)} className="menu-text pause">RESUME</div>;
-    } else {
       pauseResume = <div onClick={this.startEndGame.bind(this)} className="menu-text pause">PAUSE</div>;
+    } else {
+      pauseResume = <div onClick={this.startEndGame.bind(this)} className="menu-text pause">RESUME</div>;
+    }
+
+    let gameOver;
+
+    if (this.state.gameStatus === false) {
+      gameOver = <div onClick={this.startGame.bind(this)} className="gameover">Game Over</div>;
+
     }
 
     return (
@@ -232,20 +264,24 @@ class PaddleGame extends React.Component {
                   {pauseResume}
                 </header>
                 <div className="game-field">
+                  {gameOver}
                   <audio id="soundEfx" src={soundEfx} style={{ display: 'none' }} loop></audio>
                   <audio id="beepSound" src={beepSound} style={{ display: 'none' }}></audio>
                   <audio id="failureSound" src={failureSound} style={{ display: 'none' }}></audio>
                   <canvas onDoubleClick={this.toggleFullScreen.bind(this)} className={this.setCanvasSize()} ref="canvas" width="600" height="400"></canvas></div>
+
                 <footer>
                   <div className="key"><h1>High Score: {localStorage.getItem("highScore")}</h1>
                   </div>
                   <div className="key">
                     <h2>Current bounces: {this.state.bounces}</h2></div>
+
                 </footer>
               </div>
             </div>
           </div>
         </div>
+        <div className="gameover"></div>
       </>
     );
   }

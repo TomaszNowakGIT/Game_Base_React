@@ -65,6 +65,13 @@ $font-size: 20px;
 	left:0px;
 
 }
+.gameover{
+	position: absolute;
+	color:lime;
+	font-size: 80px;
+	z-index: 3;
+	cursor: pointer;
+}
 .full{
 	position: absolute;
 	z-index: 99;
