@@ -244,7 +244,7 @@ class PaddleGame extends React.Component {
     let gameOver;
 
     if (this.state.gameStatus === false) {
-      gameOver = <div onClick={this.startGame.bind(this)} className="gameover">Game Over</div>;
+      gameOver = <div onClick={this.startGame.bind(this)} className="gameover">Game Over<div className="h5">start again</div></div>;
 
     }
 

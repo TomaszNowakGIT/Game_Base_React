@@ -54,8 +54,17 @@ $font-size: 20px;
 }
 .pause{
 	cursor: pointer;
-	z-index: 100;
+	z-index: 2;
 	pointer-events: all;
+	display: flex;
+	justify-content: center;
+
+}
+.h5 {
+	display: flex;
+	justify-content: center;
+	color:red;
+	font-size: 30px;
 }
 .game-board-paddle--full-screen{
 	width:100vw;
@@ -71,6 +80,10 @@ $font-size: 20px;
 	font-size: 80px;
 	z-index: 3;
 	cursor: pointer;
+	filter: blur();
+	animation: jerkup 100ms infinite;
+	user-select: none;
+
 }
 .full{
 	position: absolute;
