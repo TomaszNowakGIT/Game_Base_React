@@ -21,6 +21,11 @@ class HomePage extends React.Component {
       catSound.play();
 
     }, 6000)
+
+  }
+  catSoundStop() {
+    let catSound;
+    catSound = document.getElementById("catSound");
     catSound.pause();
   }
 
@@ -35,9 +40,9 @@ class HomePage extends React.Component {
           <h1 className="title">{lang[localStorage.getItem('lang')].title}</h1>
           <h3 className="desc">{lang[localStorage.getItem('lang')].desc}</h3>
         </div>
-        <div onMouseEnter={this.catSound.bind(this)} className="meow">
+        <div className="meow">
           <audio id="catSound" src={catSound} style={{ display: 'none' }}></audio>
-          <div className="cat">
+          <div onMouseEnter={this.catSound.bind(this)} onMouseLeave={this.catSoundStop.bind(this)} className="cat">
             <div className="cat-inner">
             </div>
             <div className="cat-head">
