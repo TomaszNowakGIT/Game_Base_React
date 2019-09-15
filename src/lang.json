@@ -9,7 +9,7 @@
     },
     "pl": {
         "title": "Witaj w platformie gier ",
-        "desc": "To jest platforma gier zakodowana w React",
+        "desc": "platforma zostala zakodowana w React",
         "tictactoe": "Kółko i krzyżyk",
         "homepage": "Strona główna",
         "paddlegame": "Odbijanie piłki",

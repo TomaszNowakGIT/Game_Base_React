@@ -7,17 +7,31 @@ import TicTacToe from "./TicTacToe/TicTacToe";
 import PaddleGame from "./PaddleGame/PaddleGame"
 import lang from "./lang.json"
 import Setting from "./Setting/Setting";
+import { EventEmitter } from "./EventEmitter";
 
 
 
 class App extends React.Component {
   constructor() {
     super();
+    this.state = {
+      appRefreshed: null
+    }
 
+    let langs = [
+      'en',
+      'pl',
+    ]
 
-    if (!localStorage.getItem('lang')) {
+    if (!localStorage.getItem('lang')
+      || localStorage.getItem('lang') === undefined
+      || langs.indexOf(localStorage.getItem('lang')) < 0) {
       localStorage.setItem('lang', 'en')
     }
+    EventEmitter.subscribe('langChange', () => {
+      this.setState({ appRefreshed: new Date() })
+    })
+
   }
 
   render() {

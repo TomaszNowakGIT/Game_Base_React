@@ -1,6 +1,6 @@
 import React from "react";
-
 import "./Setting.css";
+import { EventEmitter } from "../EventEmitter";
 
 
 
@@ -8,6 +8,7 @@ class Setting extends React.Component {
 
   setLanguage(lang) {
     localStorage.setItem('lang', lang);
+    EventEmitter.dispatch('langChange', true);
 
   }
 
