@@ -48,7 +48,7 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
     right: 30%;
-    bottom: -180%;
+    bottom: -174%;
     position: absolute;
     z-index: -1;
     -webkit-transition: .4s ease-in-out;
@@ -56,7 +56,7 @@
     -o-transition: .4s ease-in-out;
     transition: .4s ease-in-out;
 
-
+overflow: hidden;
 
 }
 .navi:hover::after{
@@ -73,7 +73,7 @@
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
     right: 30%;
-    bottom: -180%;
+    bottom: -174%;
     position: absolute;
     z-index: -1;
     -webkit-transition: .4s ease-in-out;
