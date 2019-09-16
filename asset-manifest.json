@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/GameBase/static/css/main.c3de58f1.chunk.css",
+    "main.js": "/GameBase/static/js/main.b580a7f8.chunk.js",
+    "main.js.map": "/GameBase/static/js/main.b580a7f8.chunk.js.map",
+    "runtime~main.js": "/GameBase/static/js/runtime~main.aeee98e8.js",
+    "runtime~main.js.map": "/GameBase/static/js/runtime~main.aeee98e8.js.map",
+    "static/js/2.be97a4d3.chunk.js": "/GameBase/static/js/2.be97a4d3.chunk.js",
+    "static/js/2.be97a4d3.chunk.js.map": "/GameBase/static/js/2.be97a4d3.chunk.js.map",
+    "index.html": "/GameBase/index.html",
+    "precache-manifest.cb96309d3a83ceca24d90ea70534ed5e.js": "/GameBase/precache-manifest.cb96309d3a83ceca24d90ea70534ed5e.js",
+    "service-worker.js": "/GameBase/service-worker.js",
+    "static/css/main.c3de58f1.chunk.css.map": "/GameBase/static/css/main.c3de58f1.chunk.css.map",
+    "static/media/TicTacToe.css": "/GameBase/static/media/backbrick.53e8bb1f.jpg",
+    "static/media/cat.wav": "/GameBase/static/media/cat.276094fe.wav",
+    "static/media/PaddleGame.scss": "/GameBase/static/media/crt.df84d0e7.png",
+    "static/media/failure.wav": "/GameBase/static/media/failure.44db2cdb.wav",
+    "static/media/jump.wav": "/GameBase/static/media/jump.c264143a.wav",
+    "static/media/loop.mp3": "/GameBase/static/media/loop.82baf3cd.mp3"
+  }
+}
