@@ -80,6 +80,8 @@ overflow: hidden;
     -moz-transition: .4s ease-in-out;
     -o-transition: .4s ease-in-out;
     transition: .4s ease-in-out;
+
+overflow: hidden;
 }
 
 

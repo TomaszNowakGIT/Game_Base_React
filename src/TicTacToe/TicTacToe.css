@@ -18,11 +18,15 @@ body{
   border: 2px solid #452220;
   border-radius: 10px;
   box-shadow: 5px 5px 10px 0px rgba(69,34,32,1);
+  height: 90vh;
+  margin-top: 90px;
 }
 .tictactoe{
   display: flex;
   justify-content: center;
+  align-items: center;
   height: 90vh;
+
 
 }
 
@@ -49,6 +53,8 @@ body{
   flex-direction: column;
   box-shadow: 5px 5px 10px 0px rgba(69,34,32,1);
   text-align: center;
+  height: 90vh;
+  margin-top: 90px;
 
 
 }
