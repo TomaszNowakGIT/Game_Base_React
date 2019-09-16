@@ -47,12 +47,13 @@ width: 80px;
     border-radius:10px;
     left:10%;
     top: 30%;
-    transform: rotate(10deg);
+    transform: translateX(-30px) rotate(10deg);
     border:1px grey solid;
     padding: 10px;
     box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
     z-index: 2;
     font-weight: 500;
+
 
 
 }
@@ -83,6 +84,7 @@ width: 80px;
     border-radius: 150px;
     z-index: 1;
 
+
 }
 
 @keyframes wobble-hor-top {
@@ -92,6 +94,7 @@ width: 80px;
               transform: translateX(0%);
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
+
     }
     15% {
       -webkit-transform: translateX(-30px) rotate(6deg);

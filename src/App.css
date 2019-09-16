@@ -9,6 +9,7 @@
     opacity: 1.0;
     position:fixed;
     left:40%;
+    z-index: 2;
 
 }
 .navi:hover{
@@ -46,16 +47,15 @@
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    right: 30%;
-    bottom: -197%;
-    position: absolute;
-    
+
+    margin-top:5px;
+    z-index: -1;
     -webkit-transition: .4s ease-in-out;
     -moz-transition: .4s ease-in-out;
     -o-transition: .4s ease-in-out;
     transition: .4s ease-in-out;
 
-
+margin-left:110px;
 
 }
 .navi:hover::after{
@@ -71,10 +71,7 @@
     -o-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
     transform: rotate(-90deg);
-    right: 30%;
-    bottom: -197%;
-    position: absolute;
-    
+margin-top:5px;
     -webkit-transition: .4s ease-in-out;
     -moz-transition: .4s ease-in-out;
     -o-transition: .4s ease-in-out;
