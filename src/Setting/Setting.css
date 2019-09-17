@@ -1,119 +1,107 @@
-.setting{
-    height: 100vh;
-justify-content: center;
-display: flex;
-flex-direction: column;
-align-items: center;
-
+.setting {
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.option{
-    display: flex;
-    align-items: center;
+.option {
+  display: flex;
+  align-items: center;
 
-   height: 200px;
-
-
+  height: 200px;
 }
-.option1{
-    display: flex;
-    align-items: center;
-    height: 100px;
-
+.option1 {
+  display: flex;
+  align-items: center;
+  height: 100px;
 }
-h5{
-    font-size: 40px;
-    text-transform: uppercase;
-    font-weight: bold;
+h5 {
+  font-size: 40px;
+  text-transform: uppercase;
+  font-weight: bold;
 }
-.setting-menu >button{
-flex-shrink: 1;
-border-radius: 50%;
-margin-left: 10px;
-height: 80px;
-width: 80px;
-
+.setting-menu > button {
+  flex-shrink: 1;
+  border-radius: 50%;
+  margin-left: 10px;
+  height: 80px;
+  width: 80px;
 }
-.setting-menu  >button:hover{
-   zoom: 1.2;
-    transform:rotate(360deg);
-    transition: 1s;
-    border: 2px white solid;
+.setting-menu > button:hover {
+  zoom: 1.2;
+  transform: rotate(360deg);
+  transition: 1s;
+  border: 2px white solid;
 }
-.plate{
-    position: absolute;
-    color:white;
-    font-size: 20px;
-    background-color: #151c32;
-    border-radius:10px;
-    left:10%;
-    top: 30%;
-    transform: translateX(-30px) rotate(10deg);
-    border:1px grey solid;
-    padding: 10px;
-    box-shadow: 10px 10px 5px -8px rgba(0,0,0,0.75);
-    z-index: 2;
-    font-weight: 500;
-
-
-
+.plate {
+  position: absolute;
+  color: white;
+  font-size: 20px;
+  background-color: #151c32;
+  border-radius: 10px;
+  left: 10%;
+  top: 30%;
+  transform: translateX(-30px) rotate(10deg);
+  border: 1px grey solid;
+  padding: 10px;
+  box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.75);
+  z-index: 2;
+  font-weight: 500;
 }
-.plate:hover{
-    animation: wobble-hor-top 1s both;
-    cursor: pointer;
-    transition: 2s;
+.plate:hover {
+  animation: wobble-hor-top 1s both;
+  cursor: pointer;
+  transition: 2s;
 }
-.plate:before{
-    position: absolute;
-    content: ".";
-    height: 10px;
-    width: 10px;
-    color:grey;
-    margin-left:40%;
-    font-size: 80px;
-    margin-top: -150px;
+.plate:before {
+  position: absolute;
+  content: ".";
+  height: 10px;
+  width: 10px;
+  color: grey;
+  margin-left: 40%;
+  font-size: 80px;
+  margin-top: -150px;
 }
-.plate:after{
-
-    content: "";
-    width: 50px;
-    height: 70px;
-    border: 1px #151c32 solid;
-    margin-left: -100px;
-    position: absolute;
-    margin-top: -69px;
-    border-radius: 150px;
-    z-index: 1;
-
-
+.plate:after {
+  content: "";
+  width: 50px;
+  height: 70px;
+  border: 1px #151c32 solid;
+  margin-left: -100px;
+  position: absolute;
+  margin-top: -69px;
+  border-radius: 150px;
+  z-index: 1;
 }
 
 @keyframes wobble-hor-top {
-    0%,
-    100% {
-      -webkit-transform: translateX(0%);
-              transform: translateX(0%);
-      -webkit-transform-origin: 50% 50%;
-              transform-origin: 50% 50%;
-
-    }
-    15% {
-      -webkit-transform: translateX(-30px) rotate(6deg);
-              transform: translateX(-30px) rotate(6deg);
-    }
-    30% {
-      -webkit-transform: translateX(15px) rotate(-6deg);
-              transform: translateX(15px) rotate(-6deg);
-    }
-    45% {
-      -webkit-transform: translateX(-15px) rotate(3.6deg);
-              transform: translateX(-15px) rotate(3.6deg);
-    }
-    60% {
-      -webkit-transform: translateX(9px) rotate(-2.4deg);
-              transform: translateX(9px) rotate(-2.4deg);
-    }
-    75% {
-      -webkit-transform: translateX(-6px) rotate(1.2deg);
-              transform: translateX(-6px) rotate(1.2deg);
-    }
+  0%,
+  100% {
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
   }
+  15% {
+    -webkit-transform: translateX(-30px) rotate(6deg);
+    transform: translateX(-30px) rotate(6deg);
+  }
+  30% {
+    -webkit-transform: translateX(15px) rotate(-6deg);
+    transform: translateX(15px) rotate(-6deg);
+  }
+  45% {
+    -webkit-transform: translateX(-15px) rotate(3.6deg);
+    transform: translateX(-15px) rotate(3.6deg);
+  }
+  60% {
+    -webkit-transform: translateX(9px) rotate(-2.4deg);
+    transform: translateX(9px) rotate(-2.4deg);
+  }
+  75% {
+    -webkit-transform: translateX(-6px) rotate(1.2deg);
+    transform: translateX(-6px) rotate(1.2deg);
+  }
+}

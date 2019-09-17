@@ -1,119 +1,106 @@
-
-.navi{
-    background-color:white;
-    border-radius:12px;
-    margin-top:-50px;
-    height: 50px;
-    transition: 0.5s;
-    z-index: 99;
-    opacity: 1.0;
-    position:fixed;
-    left:40%;
-    z-index: 2;
-
+.navi {
+  background-color: white;
+  border-radius: 12px;
+  margin-top: -50px;
+  height: 50px;
+  transition: 0.5s;
+  z-index: 99;
+  opacity: 1;
+  position: fixed;
+  left: 40%;
+  z-index: 2;
 }
-.navi:hover{
-    margin-top:0px;
+.navi:hover {
+  margin-top: 0px;
 }
-.navi:after{
+.navi:after {
+  content: "menu";
+  color: white;
+  height: 80px;
+  width: 80px;
+  background-color: #0e3d58;
 
-    content: "menu";
-    color:white;
-    height: 80px;
-    width: 80px;
-    background-color:#0E3D58;
+  margin-top: 60px;
+  font-size: 25px;
+  font-family: Roboto;
+  font-weight: 800;
+  z-index: 95;
+  border-radius: 10px;
 
-    margin-top:60px;
-    font-size: 25px;
-    font-family: Roboto;
-    font-weight: 800;
-    z-index: 95;
-    border-radius:10px;
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  height: 12vmin;
+  width: 15vmin;
+  -moz-border-radius: 2vmin 0 0 16vmin;
+  border-left: 2vmin solid rgb(255, 255, 255);
+  border-bottom: 2vmin solid #0e3d58;
+  border-radius: 2vmin 0 0 16vmin;
+  transform-origin: 100% 0%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  right: 30%;
+  bottom: -174%;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
 
-    opacity: 1.0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: transparent;
-    height: 12vmin;
-    width: 15vmin;
-    -moz-border-radius: 2vmin 0 0 16vmin;
-    border-left: 2vmin solid rgb(255, 255, 255);
-    border-bottom: 2vmin solid #0E3D58;
-    border-radius: 2vmin 0 0 16vmin;
-    transform-origin: 100% 0%;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    right: 30%;
-    bottom: -174%;
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: .4s ease-in-out;
-    -moz-transition: .4s ease-in-out;
-    -o-transition: .4s ease-in-out;
-    transition: .4s ease-in-out;
-
-overflow: hidden;
-
+  overflow: hidden;
 }
-.navi:hover::after{
-    height: 12vmin;
-    width: 15vmin;
-    -moz-border-radius: 2vmin 0 0 16vmin;
-    border-left: 2vmin solid rgb(255, 255, 255);
-    border-bottom: 2vmin solid #0E3D58;
-    border-radius: 6vmin 2vmin 0 19vmin;
-    transform-origin: 100% 0%;
-    -webkit-transform: rotate(-90deg);
-    -moz-transform: rotate(-90deg);
-    -o-transform: rotate(-90deg);
-    -ms-transform: rotate(-90deg);
-    transform: rotate(-90deg);
-    right: 30%;
-    bottom: -174%;
-    position: absolute;
-    z-index: -1;
-    -webkit-transition: .4s ease-in-out;
-    -moz-transition: .4s ease-in-out;
-    -o-transition: .4s ease-in-out;
-    transition: .4s ease-in-out;
-
-overflow: hidden;
+.navi:hover::after {
+  height: 12vmin;
+  width: 15vmin;
+  -moz-border-radius: 2vmin 0 0 16vmin;
+  border-left: 2vmin solid rgb(255, 255, 255);
+  border-bottom: 2vmin solid #0e3d58;
+  border-radius: 6vmin 2vmin 0 19vmin;
+  transform-origin: 100% 0%;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  right: 30%;
+  bottom: -174%;
+  position: absolute;
+  z-index: -1;
+  -webkit-transition: 0.4s ease-in-out;
+  -moz-transition: 0.4s ease-in-out;
+  -o-transition: 0.4s ease-in-out;
+  transition: 0.4s ease-in-out;
+  overflow: hidden;
 }
 
-
-
-#root
-{
-    background-image: url("./backbrick.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+#root {
+  background-image: url("./backbrick.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
-.nav-link{
-    color:black;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: 900;
-    transition: 0.5s;
- 
- }
-.nav-link:hover{
-     color: #0E3D58;
-
-
- }
- .container{
-margin: auto;
-max-width: 960px;
- }
- .navigation{
-     display: flex;
-     justify-content: center;
-     align-items: center;
- }
-
- 
+.nav-link {
+  color: black;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 900;
+  transition: 0.5s;
+}
+.nav-link:hover {
+  color: #0e3d58;
+}
+.container {
+  margin: auto;
+  max-width: 960px;
+}
+.navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

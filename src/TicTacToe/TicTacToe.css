@@ -1,36 +1,34 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-body{
+@import url("https://fonts.googleapis.com/css?family=Indie+Flower");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+body {
   background-image: url("../backbrick.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
 }
 
-.winner{
+.winner {
   font-size: 27px;
   animation: text-flicker-out-glow 2.5s linear infinite both;
 }
-.game-container{
- width: 600px;
+.game-container {
+  width: 600px;
   background-color: #925652;
   padding: 10px;
   border: 2px solid #452220;
   border-radius: 10px;
-  box-shadow: 5px 5px 10px 0px rgba(69,34,32,1);
+  box-shadow: 5px 5px 10px 0px rgba(69, 34, 32, 1);
   height: 90vh;
   margin-top: 90px;
 }
-.tictactoe{
+.tictactoe {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 90vh;
-
-
 }
 
-.score-board-border{
+.score-board-border {
   background-color: #609275;
   padding: 10px;
   border: 2px solid #274534;
@@ -39,10 +37,10 @@ body{
   height: 85vh;
 }
 
-.score-board{
-  font-family: 'Indie Flower', cursive;
+.score-board {
+  font-family: "Indie Flower", cursive;
   font-size: 25px;
-  color:white;
+  color: white;
   background-color: #925652;
   padding: 10px;
   border: 2px solid #452220;
@@ -51,66 +49,60 @@ body{
   display: flex;
   justify-content: center;
   flex-direction: column;
-  box-shadow: 5px 5px 10px 0px rgba(69,34,32,1);
+  box-shadow: 5px 5px 10px 0px rgba(69, 34, 32, 1);
   text-align: center;
   height: 90vh;
   margin-top: 90px;
-
-
 }
-.btn-reset{
-text-align: center;
+.btn-reset {
+  text-align: center;
   font-size: 30px;
   box-sizing: content-box;
-
 }
-.btn-reset:hover{
+.btn-reset:hover {
   cursor: pointer;
-  border:3px #57ABAA solid;
+  border: 3px #57abaa solid;
   border-radius: 50%;
-
 }
 
-.choose-player:hover{
+.choose-player:hover {
   cursor: pointer;
-  border:3px #57ABAA solid;
+  border: 3px #57abaa solid;
   border-radius: 50%;
   zoom: 1.1;
 }
-.score-board-title{
+.score-board-title {
   text-decoration: underline;
-
 }
-.game-info{
+.game-info {
   display: flex;
   justify-content: center;
   align-items: center;
   color: white;
-  font-family: 'Indie Flower', cursive;
-  font-size:25px;
-
+  font-family: "Indie Flower", cursive;
+  font-size: 25px;
 }
 
 .mode-title {
   text-decoration: underline;
 }
-.select-mode{
+.select-mode {
   display: flex;
   font-size: 20px;
   justify-content: center;
 }
-.vs-comp{
-  margin-left:5px;
+.vs-comp {
+  margin-left: 5px;
 }
-.vs-comp:hover{
+.vs-comp:hover {
   cursor: pointer;
-  border:3px #57ABAA solid;
+  border: 3px #57abaa solid;
   border-radius: 50%;
   zoom: 1.1;
 }
-.vs-player:hover{
+.vs-player:hover {
   cursor: pointer;
-  border:3px #57ABAA solid;
+  border: 3px #57abaa solid;
   border-radius: 50%;
   zoom: 1.1;
 }
@@ -123,21 +115,25 @@ text-align: center;
   border: 2px solid #274534;
   border-radius: 10px;
 }
-#field1, #field4, #field7{
+#field1,
+#field4,
+#field7 {
   border-right-style: solid;
   border-right-width: thick;
-  border-right-color: #57ABAA;
+  border-right-color: #57abaa;
   border-left-style: solid;
   border-left-width: thick;
-  border-left-color: #57ABAA;
+  border-left-color: #57abaa;
 }
-#field3, #field5 ,#field4{
+#field3,
+#field5,
+#field4 {
   border-top-style: solid;
   border-top-width: thick;
-  border-top-color: #57ABAA;
+  border-top-color: #57abaa;
   border-bottom-style: solid;
   border-bottom-width: thick;
-  border-bottom-color: #57ABAA;
+  border-bottom-color: #57abaa;
 }
 .game-board--field {
   position: relative;
@@ -145,16 +141,15 @@ text-align: center;
   align-items: center;
   justify-content: center;
   width: 32%;
-  background:#609275;
+  background: #609275;
   cursor: pointer;
   flex-shrink: 0;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 100px;
-  color:white;
-
+  color: white;
 }
 .game-board--field:hover {
-  background:#659260;
+  background: #659260;
 }
 .game-board--field:after {
   content: "";
@@ -165,11 +160,15 @@ text-align: center;
 @keyframes text-flicker-out-glow {
   0% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+      0 0 100px rgba(255, 255, 255, 0.1);
   }
   13.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.6),
+      0 0 60px rgba(255, 255, 255, 0.45), 0 0 110px rgba(255, 255, 255, 0.25),
+      0 0 100px rgba(255, 255, 255, 0.1);
   }
   14% {
     opacity: 0;
@@ -181,11 +180,15 @@ text-align: center;
   }
   15% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2),
+      0 0 100px rgba(255, 255, 255, 0.1);
   }
   22.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.4), 0 0 110px rgba(255, 255, 255, 0.2),
+      0 0 100px rgba(255, 255, 255, 0.1);
   }
   23% {
     opacity: 0;
@@ -197,11 +200,13 @@ text-align: center;
   }
   25% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
   }
   34.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.35), 0 0 100px rgba(255, 255, 255, 0.1);
   }
   35% {
     opacity: 0;
@@ -213,11 +218,13 @@ text-align: center;
   }
   40% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.35);
   }
   42.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55), 0 0 60px rgba(255, 255, 255, 0.35);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.55),
+      0 0 60px rgba(255, 255, 255, 0.35);
   }
   43% {
     opacity: 0;
@@ -229,15 +236,18 @@ text-align: center;
   }
   45% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45),
+      0 0 60px rgba(255, 255, 255, 0.25);
   }
   50% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45),
+      0 0 60px rgba(255, 255, 255, 0.25);
   }
   54.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45),
+      0 0 60px rgba(255, 255, 255, 0.25);
   }
   55% {
     opacity: 0;
@@ -249,11 +259,13 @@ text-align: center;
   }
   69.5% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45),
+      0 0 60px rgba(255, 255, 255, 0.25);
   }
   69.9% {
     opacity: 1;
-    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45), 0 0 60px rgba(255, 255, 255, 0.25);
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.45),
+      0 0 60px rgba(255, 255, 255, 0.25);
   }
   70% {
     opacity: 0;
