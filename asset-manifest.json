@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Game_Base_React/static/css/main.cbbbbd16.chunk.css",
-    "main.js": "/Game_Base_React/static/js/main.0f592794.chunk.js",
-    "main.js.map": "/Game_Base_React/static/js/main.0f592794.chunk.js.map",
-    "runtime~main.js": "/Game_Base_React/static/js/runtime~main.adc0607b.js",
-    "runtime~main.js.map": "/Game_Base_React/static/js/runtime~main.adc0607b.js.map",
-    "static/js/2.e5222b56.chunk.js": "/Game_Base_React/static/js/2.e5222b56.chunk.js",
-    "static/js/2.e5222b56.chunk.js.map": "/Game_Base_React/static/js/2.e5222b56.chunk.js.map",
-    "index.html": "/Game_Base_React/index.html",
-    "precache-manifest.3c786800f30982756273574b422ffc6a.js": "/Game_Base_React/precache-manifest.3c786800f30982756273574b422ffc6a.js",
-    "service-worker.js": "/Game_Base_React/service-worker.js",
-    "static/css/main.cbbbbd16.chunk.css.map": "/Game_Base_React/static/css/main.cbbbbd16.chunk.css.map",
-    "static/media/TicTacToe.css": "/Game_Base_React/static/media/backbrick.53e8bb1f.jpg",
-    "static/media/cat.wav": "/Game_Base_React/static/media/cat.276094fe.wav",
-    "static/media/PaddleGame.scss": "/Game_Base_React/static/media/crt.df84d0e7.png",
-    "static/media/failure.wav": "/Game_Base_React/static/media/failure.44db2cdb.wav",
-    "static/media/jump.wav": "/Game_Base_React/static/media/jump.c264143a.wav",
-    "static/media/loop.mp3": "/Game_Base_React/static/media/loop.82baf3cd.mp3"
+    "main.css": "/static/css/main.0f5336de.chunk.css",
+    "main.js": "/static/js/main.1934b59b.chunk.js",
+    "main.js.map": "/static/js/main.1934b59b.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.b40e42cb.js",
+    "runtime~main.js.map": "/static/js/runtime~main.b40e42cb.js.map",
+    "static/js/2.e5222b56.chunk.js": "/static/js/2.e5222b56.chunk.js",
+    "static/js/2.e5222b56.chunk.js.map": "/static/js/2.e5222b56.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f22f67e08872383f514d86bb219dc46b.js": "/precache-manifest.f22f67e08872383f514d86bb219dc46b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.0f5336de.chunk.css.map": "/static/css/main.0f5336de.chunk.css.map",
+    "static/media/TicTacToe.css": "/static/media/backbrick.53e8bb1f.jpg",
+    "static/media/cat.wav": "/static/media/cat.276094fe.wav",
+    "static/media/PaddleGame.scss": "/static/media/crt.df84d0e7.png",
+    "static/media/failure.wav": "/static/media/failure.44db2cdb.wav",
+    "static/media/jump.wav": "/static/media/jump.c264143a.wav",
+    "static/media/loop.mp3": "/static/media/loop.82baf3cd.mp3"
   }
 }
