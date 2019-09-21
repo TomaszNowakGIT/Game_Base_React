@@ -134,9 +134,20 @@ h5 {
   -moz-transform: perspective(300px) rotateY(40deg) rotateX(50deg);
   transform: perspective(300px) rotateY(40deg) rotateX(50deg);
 }
-.pokrywka {
+
+.blackhole {
   position: absolute;
   height: 20px;
+  width: 100%;
+  background: black;
+  border-radius: 50%;
+  top: -10px;
+
+  z-index: -1;
+}
+.pokrywka {
+  position: absolute;
+  height: 29px;
   background: #151c32;
   top: -19px;
   left: -10px;
@@ -270,16 +281,226 @@ h5 {
 @keyframes smell {
   0% {
     transform: scale(0.5) translateY(0);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
   }
   30% {
-    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
     opacity: 1;
   }
   100% {
     transform: scale(1.5) translateY(-300px);
-    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;
+  }
+}
+.fly {
+  height: 10px;
+  width: 5px;
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  animation: fly 10s ease-in-out both;
+  transition: transform 250ms;
+  transform: rotate(90deg);
+  transform-origin: 100% 100%;
+
+  z-index: 90;
+}
+.fly:before {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(-45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  right: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly:after {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}
+
+@keyframes fly {
+  0% {
+    transform: rotate(-90deg) translateY(0);
+    opacity: 1;
+  }
+  10% {
+    transform: rotate(-45deg) translateY(-10px);
+    opacity: 1;
+  }
+  20% {
+    transform: rotate(-53deg) translateY(-10px);
+    opacity: 1;
+  }
+  30% {
+    transform: rotate(-51deg) translateY(-10px);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(-48deg) translateY(-10px);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-42deg) translateY(-10px);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(-52deg) translateY(-10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-80deg) translateY(-2000px);
+    opacity: 1;
+  }
+}
+
+.fly1 {
+  height: 10px;
+  width: 5px;
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  animation: fly1 10s ease-in-out both;
+  transition: transform 250ms;
+  transform: rotate(-90deg);
+  transform-origin: 100% 100%;
+
+  z-index: 2;
+}
+.fly1:before {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(-45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  right: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly1:after {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly1:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}
+
+@keyframes fly1 {
+  0% {
+    transform: rotate(-90deg) translateY(-10px);
+    opacity: 1;
+  }
+  10% {
+    transform: rotate(-75deg) translateY(-10px);
+    opacity: 1;
+  }
+  20% {
+    transform: rotate(-73deg) translateY(-15px);
+    opacity: 1;
+  }
+  30% {
+    transform: rotate(-61deg) translateY(-18px);
+    opacity: 1;
+  }
+  40% {
+    transform: rotate(-78deg) translateY(-18px);
+    opacity: 1;
+  }
+  50% {
+    transform: rotate(-62deg) translateY(-18px);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(-72deg) translateY(-10px);
+    opacity: 1;
+  }
+
+  100% {
+    transform: rotate(-90deg) translateY(-10px);
+    opacity: 1;
+  }
+}
+.fly-hole {
+  height: 10px;
+  width: 5px;
+  border-radius: 50%;
+  background: black;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+
+  transition: transform 250ms;
+  transform: rotate(90deg);
+  transform-origin: 10% 100%;
+
+  z-index: 90;
+}
+.fly-hole:before {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(-45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  right: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly-hole:after {
+  content: "";
+  height: 8px;
+  width: 5px;
+  transform: rotate(45deg);
+  border-radius: 50%;
+  background: white;
+  position: absolute;
+  left: -4px;
+  bottom: -1px;
+  opacity: 0.5;
+}
+.fly-hole:hover {
+  cursor: pointer;
+  animation-play-state: paused;
+}
+
+@keyframes fly-hole {
+  0% {
+    transform: rotate(-90deg) translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: rotate(90deg) translateY(-250px);
+    opacity: 1;
   }
 }

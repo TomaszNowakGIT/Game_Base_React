@@ -58,6 +58,7 @@ class Setting extends React.Component {
         </div>
         <div className='plate'>
           created by <a href={"mailto:tn@mpro.pl"}>MPRO</a>
+          <div className='fly1'></div>
         </div>
         <div
           className='trash'
@@ -65,8 +66,10 @@ class Setting extends React.Component {
           onMouseLeave={this.trashAnimationStop.bind(this)}>
           <audio id='trash' src={trash} style={{ display: "none" }}></audio>
           <div className='pokrywka'></div>
+          <div className='blackhole'></div>
           <div className='paski'></div>
           <div id='smells' className='smells'></div>
+          <div className='fly'></div>
         </div>
       </div>
     );
