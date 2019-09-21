@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/static/css/main.c87618c4.chunk.css",
+    "main.css": "/static/css/main.029f95ca.chunk.css",
     "main.js": "/static/js/main.c72aedea.chunk.js",
     "main.js.map": "/static/js/main.c72aedea.chunk.js.map",
     "runtime~main.js": "/static/js/runtime~main.b40e42cb.js",
@@ -8,9 +8,9 @@
     "static/js/2.f0f81675.chunk.js": "/static/js/2.f0f81675.chunk.js",
     "static/js/2.f0f81675.chunk.js.map": "/static/js/2.f0f81675.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.e0e8f45c481ec5ebcf2fdfae4d7eef77.js": "/precache-manifest.e0e8f45c481ec5ebcf2fdfae4d7eef77.js",
+    "precache-manifest.766d1b1bf7d5eb4a06d8ad6b137a0582.js": "/precache-manifest.766d1b1bf7d5eb4a06d8ad6b137a0582.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.c87618c4.chunk.css.map": "/static/css/main.c87618c4.chunk.css.map",
+    "static/css/main.029f95ca.chunk.css.map": "/static/css/main.029f95ca.chunk.css.map",
     "static/media/TicTacToe.css": "/static/media/backbrick.53e8bb1f.jpg",
     "static/media/cat.wav": "/static/media/cat.276094fe.wav",
     "static/media/PaddleGame.scss": "/static/media/crt.df84d0e7.png",
