@@ -19,7 +19,7 @@
   height: 80px;
   width: 80px;
   background-color: #0e3d58;
-
+  position: relative;
   margin-top: 60px;
   font-size: 25px;
   font-family: Roboto;
@@ -44,9 +44,9 @@
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  right: 30%;
-  bottom: -174%;
-  position: absolute;
+  right: -30px;
+  top: -114%;
+  position: relative;
   z-index: -1;
   -webkit-transition: 0.4s ease-in-out;
   -moz-transition: 0.4s ease-in-out;
@@ -68,15 +68,15 @@
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  right: 30%;
-  bottom: -174%;
-  position: absolute;
+  right: -30px;
+  top: -114%;
+  position: relative;
   z-index: -1;
   -webkit-transition: 0.4s ease-in-out;
   -moz-transition: 0.4s ease-in-out;
   -o-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
-  overflow: hidden;
+  cursor: pointer;
 }
 
 #root {

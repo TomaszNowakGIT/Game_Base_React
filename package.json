@@ -2,7 +2,7 @@
   "name": "baza-gier",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tomasznowakgit.github.io/Game_Base_React/",
+  "homepage": "https://mpro.pl/",
   "dependencies": {
     "bootstrap": "^4.3.1",
     "gh-pages": "^2.1.1",

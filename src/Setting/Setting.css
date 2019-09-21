@@ -48,6 +48,7 @@ h5 {
   box-shadow: 10px 10px 5px -8px rgba(0, 0, 0, 0.75);
   z-index: 2;
   font-weight: 500;
+  filter: drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.9));
 }
 .plate:hover {
   animation: wobble-hor-top 1s both;
@@ -103,5 +104,182 @@ h5 {
   75% {
     -webkit-transform: translateX(-6px) rotate(1.2deg);
     transform: translateX(-6px) rotate(1.2deg);
+  }
+}
+
+.trash {
+  background: #151c32;
+  width: 180px;
+  height: 300px;
+  display: inline-block;
+  margin: 0 auto;
+  position: relative;
+
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  top: 100px;
+  right: -500px;
+  filter: drop-shadow(16px 16px 10px rgba(0, 0, 0, 0.9));
+
+  box-shadow: inset 0 0 1px #000000;
+  z-index: 2;
+}
+.trash:after {
+  content: "";
+  bottom: 0px;
+  width: 100%;
+  left: 50%;
+  margin-left: -40%;
+  -webkit-transform: perspective(300px) rotateY(40deg) rotateX(50deg);
+  -moz-transform: perspective(300px) rotateY(40deg) rotateX(50deg);
+  transform: perspective(300px) rotateY(40deg) rotateX(50deg);
+}
+.pokrywka {
+  position: absolute;
+  height: 20px;
+  background: #151c32;
+  top: -19px;
+  left: -10px;
+  right: -10px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  transform-origin: 19% 100%;
+}
+.pokrywka:after {
+  content: "";
+  position: absolute;
+  height: 17px;
+  background: #151c32;
+  width: 160px;
+  top: -15px;
+  left: 20px;
+  right: 30px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  transform-origin: 19% 100%;
+}
+.pokrywka:before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  background: #1c2542;
+  width: 20px;
+  top: -28px;
+  left: 90px;
+  right: 80px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  transform: rotate(0deg);
+  transition: transform 250ms;
+  transform-origin: 19% 100%;
+  box-shadow: inset 0 0 1px #000000;
+}
+.trash:hover .pokrywka {
+  transform: rotate(-95deg);
+  transition: transform 250ms;
+  animation-play-state: smell running;
+}
+
+.paski {
+  position: relative;
+  width: 15px;
+  height: 250px;
+  background: #1c2542;
+  display: block;
+  margin: 25px auto;
+  border-radius: 5px;
+  box-shadow: inset 0 0 5px #1a223d;
+}
+.paski:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 250px;
+  background: #1c2542;
+  display: block;
+  border-radius: 5px;
+  left: -50px;
+  box-shadow: inset 0 0 5px #1a223d;
+}
+.paski:before {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 250px;
+  background: #1c2542;
+  display: block;
+  border-radius: 5px;
+  right: -50px;
+  box-shadow: inset 0 0 5px #1a223d;
+}
+
+#smells {
+  display: none;
+  border-radius: 50%;
+
+  animation: smell 5s ease-in-out infinite;
+  background-image: -webkit-radial-gradient(
+    ellipse at center center,
+    rgba(65, 64, 64, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  background-image: -webkit-radial-gradient(
+    center center,
+    ellipse,
+    rgba(33, 33, 33, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  background-image: radial-gradient(
+    ellipse at center center,
+    rgba(4, 51, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  position: absolute;
+  top: -45%;
+  left: -30%;
+  width: 300px;
+  height: 300px;
+  z-index: -2;
+  animation-play-state: paused;
+}
+#smells:before {
+  border-radius: 50%;
+  -webkit-transform: scale(1.6);
+  transform: scale(2.6);
+  background-image: radial-gradient(
+    ellipse at center center,
+    rgba(33, 33, 33, 0.3) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: block;
+  width: 180px;
+  height: 100px;
+  z-index: -5;
+}
+
+@keyframes smell {
+  0% {
+    transform: scale(0.5) translateY(0);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+  }
+  30% {
+    filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5) translateY(-300px);
+    filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
   }
 }
