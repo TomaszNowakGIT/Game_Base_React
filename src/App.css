@@ -44,9 +44,9 @@
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  right: -30px;
-  top: -114%;
-  position: relative;
+  right: 22%;
+  top: -22%;
+  position: absolute;
   z-index: -1;
   -webkit-transition: 0.4s ease-in-out;
   -moz-transition: 0.4s ease-in-out;
@@ -68,9 +68,9 @@
   -o-transform: rotate(-90deg);
   -ms-transform: rotate(-90deg);
   transform: rotate(-90deg);
-  right: -30px;
-  top: -114%;
-  position: relative;
+  right: 22%;
+  top: -22%;
+  position: absolute;
   z-index: -1;
   -webkit-transition: 0.4s ease-in-out;
   -moz-transition: 0.4s ease-in-out;

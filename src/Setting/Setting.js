@@ -3,6 +3,7 @@ import "./Setting.css";
 import { EventEmitter } from "../EventEmitter";
 import lang from "../lang.json";
 import trash from "./trash.mp3";
+import plate from "./plate.mp3";
 
 class Setting extends React.Component {
   setLanguage(lang) {
@@ -32,6 +33,20 @@ class Setting extends React.Component {
     trashSmell.style.display = "none";
   }
 
+  plateSoundStart() {
+    let plate;
+    plate = document.getElementById("plate");
+    plate.volume = 0.1;
+    plate.play();
+    this.flyAnimationStart();
+  }
+  flyAnimationStart() {
+    let fly1;
+    fly1 = document.getElementById("fly1");
+    fly1.style.animationPlayState = "running";
+    fly1.style.display = "block";
+  }
+
   render() {
     return (
       <div className='setting'>
@@ -56,9 +71,10 @@ class Setting extends React.Component {
             RESET
           </button>
         </div>
-        <div className='plate'>
+        <div className='plate' onMouseEnter={this.plateSoundStart.bind(this)}>
+          <audio id='plate' src={plate} style={{ display: "none" }}></audio>
           created by <a href={"mailto:tn@mpro.pl"}>MPRO</a>
-          <div className='fly1'></div>
+          <div id='fly1' className='fly1'></div>
         </div>
         <div
           className='trash'
@@ -66,7 +82,16 @@ class Setting extends React.Component {
           onMouseLeave={this.trashAnimationStop.bind(this)}>
           <audio id='trash' src={trash} style={{ display: "none" }}></audio>
           <div className='pokrywka'></div>
-          <div className='blackhole'></div>
+          <div className='blackhole'>
+            <div class='eyes'>
+              <div class='eye'>
+                <div class='ball'></div>
+              </div>
+              <div class='eye'>
+                <div class='ball'></div>
+              </div>
+            </div>
+          </div>
           <div className='paski'></div>
           <div id='smells' className='smells'></div>
           <div className='fly'></div>

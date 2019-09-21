@@ -379,10 +379,11 @@ h5 {
   position: absolute;
   left: 50%;
   top: 10%;
-  animation: fly1 10s ease-in-out both;
+  animation: fly1 1s ease-in-out both;
   transition: transform 250ms;
   transform: rotate(-90deg);
   transform-origin: 100% 100%;
+  animation-play-state: paused;
 
   z-index: 2;
 }
@@ -412,7 +413,6 @@ h5 {
 }
 .fly1:hover {
   cursor: pointer;
-  animation-play-state: paused;
 }
 
 @keyframes fly1 {
@@ -420,33 +420,9 @@ h5 {
     transform: rotate(-90deg) translateY(-10px);
     opacity: 1;
   }
-  10% {
-    transform: rotate(-75deg) translateY(-10px);
-    opacity: 1;
-  }
-  20% {
-    transform: rotate(-73deg) translateY(-15px);
-    opacity: 1;
-  }
-  30% {
-    transform: rotate(-61deg) translateY(-18px);
-    opacity: 1;
-  }
-  40% {
-    transform: rotate(-78deg) translateY(-18px);
-    opacity: 1;
-  }
-  50% {
-    transform: rotate(-62deg) translateY(-18px);
-    opacity: 1;
-  }
-  60% {
-    transform: rotate(-72deg) translateY(-10px);
-    opacity: 1;
-  }
 
   100% {
-    transform: rotate(-90deg) translateY(-10px);
+    transform: rotate(-90deg) translateY(-400px);
     opacity: 1;
   }
 }
