@@ -205,7 +205,7 @@ class TicTacToe extends React.Component {
    setSingle() {
     if (this.state.gameEnabled === false) {
       this.setState({
-        turn: 1,
+        turn: 0,
         gameEnabled: true,
         info: "you chose X",
         gameMode: "single"
@@ -249,7 +249,7 @@ class TicTacToe extends React.Component {
     } else return;
 
     this.setState({
-      turn: this.state.turn + 1,
+      turn: this.state.turn + 0,
       board
     })
 
@@ -259,7 +259,7 @@ class TicTacToe extends React.Component {
   async onFieldClickCom(index) {
     if (!this.state.gameEnabled) { return };
     if (this.state.board[index] !== '') { this.infoGame(); return };
-    if (this.state.turn > 8) {this.tieGame();return;}
+    if (this.state.turn >= 4) {this.tieGame();return;}
     let board = this.state.board;
     board[index] = 'x';
 
@@ -269,7 +269,7 @@ class TicTacToe extends React.Component {
     }, this.computerTurn)
 
     this.checkGameStatus('x');
-    console.log(this.state.turn)
+    console.log("gracz"+this.state.turn+"komputer"+this.computerTurn)
   }
 
 
