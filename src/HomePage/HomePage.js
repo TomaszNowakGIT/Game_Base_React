@@ -1,6 +1,6 @@
 import React from "react";
 import lang from "../lang.json";
-import "./HomePage.css";
+import "./HomePage.scss";
 import catSound from "./cat.wav";
 
 class HomePage extends React.Component {
@@ -30,6 +30,37 @@ class HomePage extends React.Component {
       console.log("Twoja przęglądarka nie wspiera geolokalizacji");
     }
   }
+  
+  flyAnimationStart() {
+    let fly2;
+    let min1 = Math.ceil(10);
+    let max1= Math.floor(360);
+    let randomInt1 = Math.floor(Math.random() * (max1 - min1 + 1)) + min1;
+
+    let min3 = Math.ceil(10);
+    let max3 = Math.floor(300);
+    let randomInt3 = Math.floor(Math.random() * (max3 - min3 + 1)) + min3;  
+
+    let min2 = Math.ceil(10);
+    let max2= Math.floor(300);
+    let randomInt2 = Math.floor(Math.random() * (max2 - min2 + 1)) + min2;
+console.log(randomInt1,randomInt2,randomInt3)
+    fly2 = document.getElementById("fly2");
+    fly2.style.animationPlayState = "running";
+    fly2.animate([
+  // keyframes
+  { transform: `rotate(20deg) translate(100px,200px)`},
+  { transform: `rotate(`+randomInt1+`deg) translate(`+randomInt2+`px,`+randomInt3+`px)`}
+ 
+], {  
+  // timing options
+  duration: 500,
+  iterations: 1,
+  easing: "ease-in-out",
+  fill: "both"
+
+});
+  }
 
   render() {
     return (
@@ -37,7 +68,11 @@ class HomePage extends React.Component {
         <div className='main'>
           <h1 className='title'>{lang[localStorage.getItem("lang")].title}</h1>
           <h3 className='desc'>{lang[localStorage.getItem("lang")].desc}</h3>
-        </div>
+          <div
+            id='fly2'
+            className='fly2'
+            onMouseLeave={this.flyAnimationStart.bind(this)}></div>
+            </div>
         <div className='meow'>
           <audio
             id='catSound'

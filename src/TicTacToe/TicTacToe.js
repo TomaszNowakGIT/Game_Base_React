@@ -234,6 +234,12 @@ class TicTacToe extends React.Component {
 
     await this.computerTurn();
   }
+
+  wrapperFunction() {
+    this.getRandomInt.bind(this);
+    this.computerTurn.bind(this);
+    this.onFieldClickCom.bind(this);
+  }
   ///////
 
   render() {
@@ -246,7 +252,11 @@ class TicTacToe extends React.Component {
                 <h1 className='mode-title'>Mode:</h1>
                 <div className='select-mode'>
                   <div className='vs-player'>vs Player</div>
-                  <div className='vs-comp'>vs Comp</div>
+                  <div
+                    className='vs-comp'
+                    onClick={this.wrapperFunction.bind(this)}>
+                    vs Comp
+                  </div>
                 </div>
               </div>
               <div className='difficulty'>
