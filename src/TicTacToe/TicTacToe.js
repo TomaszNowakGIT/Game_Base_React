@@ -11,7 +11,8 @@ class TicTacToe extends React.Component {
       turn: 1,
       board: ["", "", "", "", "", "", "", "", ""],
       gameEnabled: false,
-      info: ""
+      info: "",
+      gameMode: "multi"
     };
     this.computerTurn = this.computerTurn.bind(this);
   }
@@ -72,7 +73,7 @@ class TicTacToe extends React.Component {
     if (
       selectedPlayer === undefined &&
       this.state.gameEnabled[true] &&
-      this.state.turn > 8
+      this.state.turn > 9
     ) {
       this.tieGame();
       return;
@@ -87,10 +88,11 @@ class TicTacToe extends React.Component {
       this.infoGame();
       return;
     }
-    if (this.state.turn > 9) {
+    if (this.state.turn > 8) {
       this.tieGame();
       return;
     }
+    console.log(this.state.turn)
     let selectedPlayerTag =
       this.state.turn % 2 === 0 ? this.state.player1 : this.state.player2;
     let nextSelectedPlayerTag =
@@ -136,16 +138,17 @@ class TicTacToe extends React.Component {
     nextTurnTag = ` `;
     ReactDOM.render(nextTurnTag, document.querySelector(".nextturn"));
     let infoGame;
-    infoGame = `Choose X or O to begin!`;
+    infoGame = `Set game mode to start game!!`;
     ReactDOM.render(infoGame, document.querySelector(".game-info"));
   }
   endGame(selectedPlayer) {
     let winfield;
-    winfield = `the winner is:   ` + selectedPlayer;
-    ReactDOM.render(winfield, document.querySelector(".winner"));
     this.setState({
       gameEnabled: false
     });
+       winfield = `the winner is:   ` + selectedPlayer;
+    ReactDOM.render(winfield, document.querySelector(".winner"));
+    
   }
   tieGame() {
     let winfield;
@@ -184,65 +187,126 @@ class TicTacToe extends React.Component {
     infoGame = `you chose O`;
     ReactDOM.render(infoGame, document.querySelector(".game-info"));
   }
-
-  //////
-  getRandomInt() {
+  setMulti() {
+    if (this.state.gameEnabled === false) {
+      this.setState({
+        player1: "X",
+        player2: "O",
+        turn: 0,
+        gameEnabled: false,
+        info: "you chose X",
+        gameMode: "multi"
+      });
+    }
+    let infoGame;
+    infoGame = `Choose X or O to begin!`;
+    ReactDOM.render(infoGame, document.querySelector(".game-info"));
+  }
+   setSingle() {
+    if (this.state.gameEnabled === false) {
+      this.setState({
+        turn: 1,
+        gameEnabled: true,
+        info: "you chose X",
+        gameMode: "single"
+      });
+    }
+    let infoGame;
+    infoGame = `player1(X) vs computer(O) `;
+    ReactDOM.render(infoGame, document.querySelector(".game-info"));
+  }
+ 
+   getRandomInt() {
     let min = Math.ceil(0);
     let max = Math.floor(8);
 
     let randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
 
-    while (this.state.board[randomInt] !== "") {
+    while (this.state.board[randomInt] !== '') {
       randomInt = Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
     return randomInt;
   }
 
-  async computerTurn() {
-    let board = this.state.board;
+  computerTurn() {
+    let { board } = this.state
 
-    let computerFieldSelected = await this.getRandomInt();
-    board[computerFieldSelected] = "o";
+    function _getRandomInt() {
+      let min = Math.ceil(0);
+      let max = Math.floor(8);
 
-    this.checkGameStatus("o");
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    let computerFieldSelected = _getRandomInt();
+
+    if (board[computerFieldSelected] === '') {
+      board[computerFieldSelected] = 'o'
+    } else if (this.state.gameEnabled && this.state.board.indexOf('') >= 0) {
+      this.computerTurn();
+      return;
+    } else return;
 
     this.setState({
       turn: this.state.turn + 1,
       board
-    });
-  }
+    })
+
+    this.checkGameStatus('o');
+  }   
 
   async onFieldClickCom(index) {
-    if (!this.state.gameEnabled) {
-      return;
-    }
-    if (this.state.board[index] !== "") {
-      alert("To miejsce jest już zajęte!");
-      return;
-    }
-
+    if (!this.state.gameEnabled) { return };
+    if (this.state.board[index] !== '') { this.infoGame(); return };
+    if (this.state.turn > 8) {this.tieGame();return;}
     let board = this.state.board;
-    board[index] = "x";
-
-    this.checkGameStatus("x");
+    board[index] = 'x';
 
     this.setState({
       turn: this.state.turn + 1,
       board
-    });
+    }, this.computerTurn)
 
-    await this.computerTurn();
+    this.checkGameStatus('x');
+    console.log(this.state.turn)
   }
 
-  wrapperFunction() {
-    this.getRandomInt.bind(this);
-    this.computerTurn.bind(this);
-    this.onFieldClickCom.bind(this);
-  }
-  ///////
 
   render() {
+    let singlePlayer;
+    let multiPlayer;
+    if(this.state.gameMode === "multi"){
+      singlePlayer = ( <div className='game-board'>
+              {this.state.board.map((field, key) => {
+                return (
+                  <div
+                    className='game-board--field'
+                    id={"field" + key}
+                    key={key}
+                    onClick={this.onFieldClick.bind(this, key)}>
+                    <div className='game-board--field-content'>{field}</div>
+                  </div>
+                );
+              })}
+            </div>);
+    }
+    if(this.state.gameMode === "single"){
+      multiPlayer = ( <div className='game-board'>
+              {this.state.board.map((field, key) => {
+                return (
+                  <div
+                    className='game-board--field'
+                    id={"field" + key}
+                    key={key}
+                    onClick={this.onFieldClickCom.bind(this, key)}>
+                    <div className='game-board--field-content'>{field}</div>
+                  </div>
+                );
+              })}
+            </div>);
+    }
+
     return (
       <>
         <div className='tictactoe'>
@@ -251,10 +315,11 @@ class TicTacToe extends React.Component {
               <div className='mode'>
                 <h1 className='mode-title'>Mode:</h1>
                 <div className='select-mode'>
-                  <div className='vs-player'>vs Player</div>
+                  <div className='vs-player'
+                  onClick={this.setMulti.bind(this)}>vs Player</div>
                   <div
                     className='vs-comp'
-                    onClick={this.wrapperFunction.bind(this)}>
+                    onClick={this.setSingle.bind(this)}>
                     vs Comp
                   </div>
                 </div>
@@ -285,19 +350,8 @@ class TicTacToe extends React.Component {
           </div>
 
           <div className='game-container'>
-            <div className='game-board'>
-              {this.state.board.map((field, key) => {
-                return (
-                  <div
-                    className='game-board--field'
-                    id={"field" + key}
-                    key={key}
-                    onClick={this.onFieldClick.bind(this, key)}>
-                    <div className='game-board--field-content'>{field}</div>
-                  </div>
-                );
-              })}
-            </div>
+           {singlePlayer}
+           {multiPlayer}
             <div className='game-info'>Choose X or O to begin!</div>
           </div>
         </div>
